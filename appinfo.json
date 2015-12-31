@@ -1,0 +1,31 @@
+{
+    "appKeys": {},
+    "capabilities": [
+        ""
+    ],
+    "companyName": "Joe Diragi",
+    "longName": "Colr",
+    "projectType": "native",
+    "resources": {
+        "media": [
+            {
+                "file": "fonts/Terminus",
+                "name": "TERMINUS_BOLD_24",
+                "targetPlatforms": null,
+                "type": "font"
+            }
+        ]
+    },
+    "sdkVersion": "3",
+    "shortName": "Colr",
+    "targetPlatforms": [
+        "aplite",
+        "basalt",
+        "chalk"
+    ],
+    "uuid": "358f049d-bab6-498d-8e0f-61916b4fc103",
+    "versionLabel": "1.0",
+    "watchapp": {
+        "watchface": true
+    }
+}
