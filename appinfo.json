@@ -9,9 +9,14 @@
     "resources": {
         "media": [
             {
-                "file": "fonts/Terminus",
-                "name": "TERMINUS_BOLD_24",
-                "targetPlatforms": null,
+                "characterRegex": "[0-9:]",
+                "file": "fonts/Roboto",
+                "name": "ROBOTO_BLACK_20",
+                "targetPlatforms": [
+                    "aplite",
+                    "basalt",
+                    "chalk"
+                ],
                 "type": "font"
             }
         ]
