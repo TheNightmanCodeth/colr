@@ -39,9 +39,17 @@ static void graphics_update_proc(Layer *this_layer, GContext *ctx) {
   GPoint center = GPoint(bounds.size.w / 2, (bounds.size.h / 2));
   //Draw the bar
   graphics_context_set_fill_color(ctx, GColorBlack);
-  ////Set the bar to the battery %
-  int battery_bar_width = ((bounds.size.w*charge_percent)/(100));
-  graphics_fill_rect(ctx, GRect(0, PBL_IF_ROUND_ELSE(105, 95), battery_bar_width, 5), 0, GCornerNone);
+  ////Set the bar to the battery %  
+  //////If the watch is charging, we need to set it to full & make it white or something
+  if (charge_percent == 200) {
+    //The watch is charging
+    graphics_context_set_fill_color(ctx, GColorBlack);
+    graphics_fill_rect(ctx, GRect(0, PBL_IF_ROUND_ELSE(105, 95), bounds.size.w, 5), 0, GCornerNone);
+  } else {
+    //The watch is not charging
+    int battery_bar_width = ((bounds.size.w*charge_percent)/(100));
+    graphics_fill_rect(ctx, GRect(0, PBL_IF_ROUND_ELSE(105, 95), battery_bar_width, -30), 0, GCornerNone);
+  }
 }
 
 static void main_window_load(Window *window) {

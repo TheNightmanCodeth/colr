@@ -9,6 +9,16 @@
     "resources": {
         "media": [
             {
+                "file": "images/ICON.png",
+                "menuIcon": true,
+                "name": "ICON",
+                "targetPlatforms": [
+                    "basalt",
+                    "chalk"
+                ],
+                "type": "bitmap"
+            },
+            {
                 "characterRegex": "[0-9:]",
                 "file": "fonts/Quadrats",
                 "name": "QUADRATS_20",
@@ -24,7 +34,6 @@
     "sdkVersion": "3",
     "shortName": "Colr",
     "targetPlatforms": [
-        "aplite",
         "basalt",
         "chalk"
     ],
