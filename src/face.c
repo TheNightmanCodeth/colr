@@ -61,7 +61,7 @@ static void main_window_load(Window *window) {
   text_layer_set_background_color(s_time_layer, GColorClear);
   text_layer_set_text_color(s_time_layer, GColorWhite);
   text_layer_set_text(s_time_layer, "00:00");
-  s_time_font = fonts_load_custom_font(resource_get_handle(RESOURCE_ID_ROBOTO_BLACK_20));
+  s_time_font = fonts_load_custom_font(resource_get_handle(RESOURCE_ID_QUADRATS_20));
   text_layer_set_font(s_time_layer, s_time_font);
   text_layer_set_text_alignment(s_time_layer, GTextAlignmentCenter);
   

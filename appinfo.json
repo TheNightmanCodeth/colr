@@ -10,8 +10,8 @@
         "media": [
             {
                 "characterRegex": "[0-9:]",
-                "file": "fonts/Roboto",
-                "name": "ROBOTO_BLACK_20",
+                "file": "fonts/Quadrats",
+                "name": "QUADRATS_20",
                 "targetPlatforms": [
                     "aplite",
                     "basalt",
