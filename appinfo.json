@@ -1,5 +1,7 @@
 {
-    "appKeys": {},
+    "appKeys": {
+        "KEY_DATA": 5
+    },
     "capabilities": [
         ""
     ],
@@ -8,6 +10,12 @@
     "projectType": "native",
     "resources": {
         "media": [
+            {
+                "file": "fonts/Quadrats_Small",
+                "name": "QUADRATS_SMALL_15",
+                "targetPlatforms": null,
+                "type": "font"
+            },
             {
                 "file": "images/ICON.png",
                 "menuIcon": true,
