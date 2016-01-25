@@ -126,7 +126,7 @@ static void main_window_load(Window *window) {
   
   //Create the text layers
   s_time_layer = text_layer_create(GRect(0, ((bounds.size.h / 2) - 7.5), bounds.size.w, 30));
-  s_date_layer = text_layer_create(GRect(0, PBL_IF_ROUND_ELSE(110, 100), bounds.size.w, 50));
+  s_date_layer = text_layer_create(GRect(0, ((bounds.size.h / 2) + 20), bounds.size.w, 50));
   
   //Battery Bar/Graphics layer
   graphics_layer = layer_create(GRect(0, 0, bounds.size.w, bounds.size.h));
