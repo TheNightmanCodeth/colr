@@ -79,7 +79,7 @@ static void outbox_sent_callback(DictionaryIterator *iterator, void *context) {
 static void handle_second_tick(struct tm *tick_time, TimeUnits units_changed) {
   //Update the time
   static char s_time_text[] = "00:00:00";
-  strftime(s_time_text, sizeof(s_time_text), show_seconds ? "%H:%M:%S" : "%H%M", tick_time);
+  strftime(s_time_text, sizeof(s_time_text), clock_is_24h_style() ? "%H:%M:%S" : "%I:%M:%S", tick_time);
   text_layer_set_text(s_time_layer, s_time_text);
   //Update the date
   static char s_date_text[16];
@@ -111,11 +111,11 @@ static void graphics_update_proc(Layer *this_layer, GContext *ctx) {
   if (charge_percent == 200) {
     //The watch is charging
     graphics_context_set_fill_color(ctx, GColorBlack);
-    graphics_fill_rect(ctx, GRect(0, PBL_IF_ROUND_ELSE(105, 95), bounds.size.w, 5), 0, GCornerNone);
+    graphics_fill_rect(ctx, GRect(0, ((bounds.size.h / 2) + 15), bounds.size.w, 5), 0, GCornerNone);
   } else {
     //The watch is not charging
     int battery_bar_width = ((bounds.size.w*charge_percent)/(100));
-    graphics_fill_rect(ctx, GRect(0, PBL_IF_ROUND_ELSE(105, 95), battery_bar_width, -30), 0, GCornerNone);
+    graphics_fill_rect(ctx, GRect(0, ((bounds.size.h / 2) + 15), battery_bar_width, -30), 0, GCornerNone);
   }
 }
 
@@ -124,11 +124,11 @@ static void main_window_load(Window *window) {
   Layer *window_layer = window_get_root_layer(window);
   GRect bounds = layer_get_bounds(window_layer);
   
-  //Create the text layer
-  s_time_layer = text_layer_create(GRect(0, PBL_IF_ROUND_ELSE(80, 70), bounds.size.w, 150));
+  //Create the text layers
+  s_time_layer = text_layer_create(GRect(0, ((bounds.size.h / 2) - 7.5), bounds.size.w, 30));
   s_date_layer = text_layer_create(GRect(0, PBL_IF_ROUND_ELSE(110, 100), bounds.size.w, 50));
   
-  //Graphics layer
+  //Battery Bar/Graphics layer
   graphics_layer = layer_create(GRect(0, 0, bounds.size.w, bounds.size.h));
   layer_add_child(window_layer, graphics_layer);
   layer_set_update_proc(graphics_layer, graphics_update_proc);
@@ -138,7 +138,7 @@ static void main_window_load(Window *window) {
   text_layer_set_background_color(s_time_layer, GColorClear);  
   text_layer_set_text_color(s_time_layer, GColorWhite);                                   
   text_layer_set_text(s_time_layer, "00:00");
-  s_time_font = fonts_load_custom_font(resource_get_handle(RESOURCE_ID_QUADRATS_20));
+  s_time_font = fonts_load_custom_font(resource_get_handle(RESOURCE_ID_QUADRATS_15));
   text_layer_set_font(s_time_layer, s_time_font);                                 
   text_layer_set_text_alignment(s_time_layer, GTextAlignmentCenter);
   ////Date
@@ -169,7 +169,7 @@ static void main_window_load(Window *window) {
   int sec = current_time->tm_sec;  
   window_set_background_color(s_main_window, GColorFromRGB(hour + 150, min + 150, sec + 150));
   
-  //Add it as a child to the window
+  //Add time and date as a child to the window
   layer_add_child(window_layer, text_layer_get_layer(s_time_layer));
   layer_add_child(window_layer, text_layer_get_layer(s_date_layer));
   

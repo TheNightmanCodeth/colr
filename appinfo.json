@@ -29,7 +29,7 @@
             {
                 "characterRegex": "[0-9:]",
                 "file": "fonts/Quadrats",
-                "name": "QUADRATS_20",
+                "name": "QUADRATS_15",
                 "targetPlatforms": [
                     "aplite",
                     "basalt",
@@ -46,7 +46,7 @@
         "chalk"
     ],
     "uuid": "358f049d-bab6-498d-8e0f-61916b4fc103",
-    "versionLabel": "1.0",
+    "versionLabel": "2.2",
     "watchapp": {
         "watchface": true
     }
